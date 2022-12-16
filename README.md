@@ -38,4 +38,5 @@ const client = new RoleplayBotSDK(auth);
 
   //Get all civilians in the guild
   const civilians = await client.listCivilians();
-})();```
+})();
+```
