@@ -23,7 +23,7 @@ const civilians = await client.listCivilians();
 
 CJS
 ```js
-const { RoleplayBotSDK } from 'roleplaybotSDK';
+const { RoleplayBotSDK } = require('roleplaybotSDK');
 
 const auth = {
   authKey: 'your api auth key',
