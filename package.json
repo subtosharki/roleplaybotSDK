@@ -1,0 +1,20 @@
+{
+  "name": "roleplaybot-api-sdk",
+  "version": "1.0.0",
+  "description": "A Javascript SDK for the RoleplayBot API",
+  "main": "src/index",
+  "type": "module",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": "git+https://github.com/subtosharki/roleplaybot-api-sdk.git",
+  "author": "subtosharki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subtosharki/roleplaybot-api-sdk/issues"
+  },
+  "homepage": "https://github.com/subtosharki/roleplaybot-api-sdk#readme",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}
