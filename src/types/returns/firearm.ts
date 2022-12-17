@@ -1,6 +1,5 @@
 import type { Firearm } from '../index.js';
 
-
 export interface GetFirearmReturn {
   found: boolean;
   guildID: string;
