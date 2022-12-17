@@ -2,7 +2,7 @@ import type { ClientOptions } from '../types/index.js';
 
 export default class {
   private credentials: { authKey: string; guildId: string };
-  protected readonly URL = 'https://roleplaybot.xyz/api';
+  protected readonly URL = 'https://roleplaybot.xyz/api/';
   public constructor({ authKey, guildId }: ClientOptions) {
     this.credentials = { authKey, guildId };
   }
