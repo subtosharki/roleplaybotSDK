@@ -67,4 +67,11 @@ export default class {
     field: z.nativeEnum(FirearmFields),
     value: z.string() || z.boolean(),
   });
+  static AdmitCivilian = z.object({
+    name: z.string(),
+    time: z.string(),
+    injuries: z.string(),
+    unitName: z.string(),
+    unitID: z.string(),
+  });
 }

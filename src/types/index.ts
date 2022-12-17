@@ -173,3 +173,12 @@ export interface DeleteFirearmReturn {
   id: string;
   success: string;
 }
+
+export interface Admissions {
+  count: string;
+  unitsName: string;
+  unitsID: string;
+  time: string;
+  injuries: string;
+  timestamp: string;
+}
