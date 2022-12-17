@@ -4,7 +4,7 @@ import type {
   Civilian,
   Fines,
   HospitalRecords,
-} from './index.js';
+} from '../index.js';
 
 export interface GetCivilianReturn {
   guildID: string;

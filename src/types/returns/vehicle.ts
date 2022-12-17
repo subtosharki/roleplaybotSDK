@@ -1,9 +1,14 @@
-import { InsuranceTypes, RegistrationTypes, Vehicle, VehicleFields } from './index.js';
+import {
+  InsuranceTypes,
+  RegistrationTypes,
+  type Vehicle,
+  VehicleFields,
+} from '../index.js';
 
 export interface GetVehicleReturn1 {
   found: boolean;
   guildID: string;
-  vehicle: Array<Vehicle>
+  vehicle: Array<Vehicle>;
 }
 
 export interface GetVehicleReturn2 {
@@ -36,7 +41,7 @@ export interface EditVehicleReturn {
   userID: string;
   userName: string;
   plate: string;
-  field: VehicleFields
+  field: VehicleFields;
   value: string | InsuranceTypes | RegistrationTypes | boolean;
   oldValue: string | InsuranceTypes | RegistrationTypes | boolean;
   success: string;
@@ -48,5 +53,3 @@ export interface DeleteVehicleReturn {
   id: string;
   success: string;
 }
-
-

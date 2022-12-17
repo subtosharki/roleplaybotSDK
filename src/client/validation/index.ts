@@ -6,6 +6,7 @@ import {
   InsuranceTypes,
   RegistrationTypes,
   VehicleFields,
+  FirearmFields,
 } from '../../types/index.js';
 
 export default class {
@@ -55,5 +56,15 @@ export default class {
     field: z.nativeEnum(VehicleFields),
     value: z.string() || z.boolean(),
   });
-  static DeleteVehicle = z.string();
+  static SerialNumber = z.string();
+  static CreateFirearm = z.object({
+    name: z.string(),
+    serialNumber: z.string(),
+    model: z.string(),
+  });
+  static EditFirearm = z.object({
+    name: z.string(),
+    field: z.nativeEnum(FirearmFields),
+    value: z.string() || z.boolean(),
+  });
 }

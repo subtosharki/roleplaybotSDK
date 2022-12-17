@@ -1,4 +1,4 @@
-import { CIV_GENDERS, CivilianFields } from './index.js';
+import { CIV_GENDERS, CivilianFields } from '../index.js';
 
 export interface CreateCivilianBody {
   userID: string;

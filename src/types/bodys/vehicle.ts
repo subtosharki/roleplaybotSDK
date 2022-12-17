@@ -3,7 +3,7 @@ import {
   InsuranceTypes,
   RegistrationTypes,
   VehicleFields,
-} from './index.js';
+} from '../index.js';
 
 export interface CreateVehicleBody {
   name: string;

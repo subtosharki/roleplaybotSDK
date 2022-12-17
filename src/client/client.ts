@@ -3,14 +3,17 @@ import CivilianManager from './managers/CivilianManager.js';
 import FetchClient from './fetchClient.js';
 import type { ErrorReturn } from '../types/index.js';
 import VehicleManager from './managers/VehicleManager.js';
+import FirearmManager from './managers/firearmManager.js';
 
 export default class extends FetchClient {
   private readonly civilianManager: CivilianManager;
   private readonly vehicleManager: VehicleManager;
+  private readonly firearmManager: FirearmManager;
   public constructor({ authKey, guildId }: APITypes.ClientOptions) {
     super({ authKey, guildId });
     this.civilianManager = new CivilianManager({ authKey, guildId });
     this.vehicleManager = new VehicleManager({ authKey, guildId });
+    this.firearmManager = new FirearmManager({ authKey, guildId });
   }
   public async getAPIVersion(): Promise<APITypes.VersionReturn | ErrorReturn> {
     return await super.fetch('version');
@@ -51,19 +54,45 @@ export default class extends FetchClient {
     return await this.civilianManager.delete(name);
   }
 
-  public async getVehicle(plate:string) : Promise<APITypes.GetVehicleReturn | ErrorReturn> {
+  public async getVehicle(
+    plate: string,
+  ): Promise<APITypes.GetVehicleReturn | ErrorReturn> {
     return await this.vehicleManager.get(plate);
   }
-  public async getAllVehicles() : Promise<APITypes.GetAllVehiclesReturn | ErrorReturn> {
+  public async getAllVehicles(): Promise<
+    APITypes.GetAllVehiclesReturn | ErrorReturn
+  > {
     return await this.vehicleManager.list();
   }
-  public async createVehicle(body:APITypes.CreateVehicleBody) : Promise<APITypes.CreateVehicleReturn | ErrorReturn> {
+  public async createVehicle(
+    body: APITypes.CreateVehicleBody,
+  ): Promise<APITypes.CreateVehicleReturn | ErrorReturn> {
     return await this.vehicleManager.create(body);
   }
-  public async editVehicle(body:APITypes.EditVehicleBody) : Promise<APITypes.EditVehicleReturn | ErrorReturn> {
+  public async editVehicle(
+    body: APITypes.EditVehicleBody,
+  ): Promise<APITypes.EditVehicleReturn | ErrorReturn> {
     return await this.vehicleManager.edit(body);
   }
-  public async deleteVehicle(plate:string) : Promise<APITypes.DeleteVehicleReturn | ErrorReturn> {
+  public async deleteVehicle(
+    plate: string,
+  ): Promise<APITypes.DeleteVehicleReturn | ErrorReturn> {
     return await this.vehicleManager.delete(plate);
+  }
+
+  public async getFirearm(serialNumber: string): Promise<APITypes.GetFirearmReturn | ErrorReturn> {
+    return await this.firearmManager.get(serialNumber);
+  }
+  public async getAllFirearms(): Promise<APITypes.GetAllFirearmsReturn | ErrorReturn> {
+    return await this.firearmManager.list();
+  }
+  public async createFirearm(body: APITypes.CreateFirearmBody): Promise<APITypes.CreateFirearmReturn | ErrorReturn> {
+    return await this.firearmManager.create(body);
+  }
+  public async editFirearm(body: APITypes.EditFirearmBody): Promise<APITypes.EditFirearmReturn | ErrorReturn> {
+    return await this.firearmManager.edit(body);
+  }
+  public async deleteFirearm(serialNumber: string): Promise<APITypes.DeleteFirearmReturn | ErrorReturn> {
+    return await this.firearmManager.delete(serialNumber);
   }
 }
