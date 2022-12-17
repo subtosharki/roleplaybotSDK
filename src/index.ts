@@ -1,6 +1,6 @@
-import Client from "./client/client.js";
+import Client from './client/client.js';
 
 export default {
-    RoleplayBotSDK: Client,
-    types: './types'
-}
+  RoleplayBotSDK: Client,
+  types: './types',
+};

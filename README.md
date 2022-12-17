@@ -5,7 +5,7 @@ A type-safe Javascript SDK for the RoleplayBot API
 
 ESM
 ```js
-import { RoleplayBotSDK } from 'roleplaybotSDK';
+import { RoleplayBotSDK } from 'roleplaybot-sdk';
 
 const auth = {
   authKey: 'your api auth key',
@@ -18,12 +18,12 @@ const client = new RoleplayBotSDK(auth);
 const version = await client.getAPIVersion();
 
 //Get all civilians in the guild
-const civilians = await client.listCivilians();
+const civilians = await client.getAllCivilians();
 ```
 
 CJS
 ```js
-const { RoleplayBotSDK } = require('roleplaybotSDK');
+const { RoleplayBotSDK } = require('roleplaybot-sdk');
 
 const auth = {
   authKey: 'your api auth key',
@@ -37,6 +37,6 @@ const client = new RoleplayBotSDK(auth);
   const version = await client.getAPIVersion();
 
   //Get all civilians in the guild
-  const civilians = await client.listCivilians();
+  const civilians = await client.getAllCivilians();
 })();
 ```
