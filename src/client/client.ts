@@ -3,20 +3,23 @@ import CivilianManager from './managers/CivilianManager.js';
 import FetchClient from './fetchClient.js';
 import type { ErrorReturn } from '../types/index.js';
 import VehicleManager from './managers/VehicleManager.js';
-import FirearmManager from './managers/firearmManager.js';
-import MedicalManager from './managers/medicalManager.js';
+import FirearmManager from './managers/FirearmManager.js';
+import MedicalManager from './managers/MedicalManager.js';
+import LeoManager from './managers/LeoManager.js';
 
 export default class extends FetchClient {
   private readonly civilianManager: CivilianManager;
   private readonly vehicleManager: VehicleManager;
   private readonly firearmManager: FirearmManager;
   private readonly medicalManager: MedicalManager;
+  private readonly leoManager: LeoManager;
   public constructor({ authKey, guildId }: APITypes.ClientOptions) {
     super({ authKey, guildId });
     this.civilianManager = new CivilianManager({ authKey, guildId });
     this.vehicleManager = new VehicleManager({ authKey, guildId });
     this.firearmManager = new FirearmManager({ authKey, guildId });
     this.medicalManager = new MedicalManager({ authKey, guildId });
+    this.leoManager = new LeoManager({ authKey, guildId });
   }
   public async getAPIVersion(): Promise<APITypes.VersionReturn | ErrorReturn> {
     return await super.fetch('version');
@@ -118,5 +121,32 @@ export default class extends FetchClient {
     body: APITypes.AdmitCivilianBody,
   ): Promise<APITypes.AdmitCivilianReturn | ErrorReturn> {
     return await this.medicalManager.admit(body);
+  }
+
+  public async getRecords(name: string): Promise<APITypes.GetRecordsReturn> {
+    return await this.leoManager.records(name);
+  }
+  public async isImpounded(plate: string) {
+    return await this.leoManager.isImpounded(plate);
+  }
+  public async arrestCivilian(
+    body: APITypes.ArrestCivilianBody,
+  ): Promise<APITypes.ArrestCivilianReturn | ErrorReturn> {
+    return await this.leoManager.arrest(body);
+  }
+  public async citeCivilian(
+    body: APITypes.CiteCivilianBody,
+  ): Promise<APITypes.CiteCivilianReturn | ErrorReturn> {
+    return this.leoManager.cite(body);
+  }
+  public async fineCivilian(
+    body: APITypes.FineCivilianBody,
+  ): Promise<APITypes.FineCivilianReturn | ErrorReturn> {
+    return this.leoManager.fine(body);
+  }
+  public async toggleImpound(
+    body: APITypes.ToggleImpoundVehicleBody,
+  ): Promise<APITypes.ImpoundVehicleReturn | ErrorReturn> {
+    return this.leoManager.toggleImpound(body);
   }
 }

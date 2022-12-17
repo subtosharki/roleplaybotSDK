@@ -89,7 +89,7 @@ export interface Civilian {
   registrationTimestamp: string;
   citations: Array<Citations>;
   fines: Array<Fines>;
-  arrests: Array<Arrests>;
+  arrests: Array<Arrest>;
   hospitalizations: Array<HospitalRecords>;
 }
 export interface Citations {
@@ -106,7 +106,7 @@ export interface Fines {
   charges: string;
   timestamp: string;
 }
-export interface Arrests {
+export interface Arrest {
   officerName: string;
   officerID: string;
   amount: string;

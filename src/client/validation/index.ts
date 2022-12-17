@@ -74,4 +74,30 @@ export default class {
     unitName: z.string(),
     unitID: z.string(),
   });
+  static ArrestCivilian = z.object({
+    name: z.string(),
+    officerName: z.string(),
+    officerID: z.string(),
+    charges: z.string(),
+    time: z.number(),
+  });
+  static CiteCivilian = z.object({
+    name: z.string(),
+    officerName: z.string(),
+    officerID: z.string(),
+    charges: z.string(),
+    amount: z.number(),
+  });
+  static FineCivilian = z.object({
+    name: z.string(),
+    officerName: z.string(),
+    officerID: z.string(),
+    charges: z.string(),
+    amount: z.number(),
+  });
+  static ToggleImpoundVehicle = z.object({
+    plate: z.string(),
+    impound: z.boolean(),
+    fee: z.number().optional(),
+  });
 }

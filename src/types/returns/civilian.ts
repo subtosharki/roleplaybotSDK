@@ -1,5 +1,5 @@
 import type {
-  Arrests,
+  Arrest,
   Citations,
   Civilian,
   Fines,
@@ -13,7 +13,7 @@ export interface GetCivilianReturn {
   civilian: Array<Civilian>;
   citations: Array<Citations>;
   fines: Array<Fines>;
-  arrests: Array<Arrests>;
+  arrests: Array<Arrest>;
   hospitalizations: Array<HospitalRecords>;
 }
 
