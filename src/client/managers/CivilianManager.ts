@@ -7,7 +7,6 @@ import type {
   ToggleDeceasedBody,
 } from '../../types/index.js';
 import Validation from '../validation/index.js';
-import validation from '../validation/index.js';
 
 export default class extends FetchClient {
   public constructor({ authKey, guildId }: ClientOptions) {
@@ -51,7 +50,7 @@ export default class extends FetchClient {
     });
   }
   public async deceased(body: ToggleDeceasedBody) {
-    validation.ToggleDeceased.parse(body);
+    Validation.ToggleDeceased.parse(body);
     return await super.fetch('civilian/deceased', {
       method: 'PATCH',
       body: JSON.stringify(body),

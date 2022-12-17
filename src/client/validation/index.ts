@@ -1,5 +1,12 @@
 import { z } from 'zod';
-import { CIV_GENDERS, Fields } from '../../types/index.js';
+import {
+  CIV_GENDERS,
+  ColorTypes,
+  CivilianFields,
+  InsuranceTypes,
+  RegistrationTypes,
+  VehicleFields,
+} from '../../types/index.js';
 
 export default class {
   static Name = z.string();
@@ -18,7 +25,7 @@ export default class {
   });
   static EditCivilian = z.object({
     name: z.string(),
-    field: z.nativeEnum(Fields),
+    field: z.nativeEnum(CivilianFields),
     value: z.string() || z.number(),
   });
   static ToggleBolo = z.object({
@@ -33,4 +40,20 @@ export default class {
   static DeleteCivilian = z.object({
     name: z.string(),
   });
+  static Plate = z.string();
+  static CreateVehicle = z.object({
+    name: z.string(),
+    plate: z.string(),
+    model: z.string(),
+    color: z.string(),
+    colorType: z.nativeEnum(ColorTypes),
+    insurance: z.nativeEnum(InsuranceTypes),
+    registration: z.nativeEnum(RegistrationTypes),
+  });
+  static EditVehicle = z.object({
+    name: z.string(),
+    field: z.nativeEnum(VehicleFields),
+    value: z.string() || z.boolean(),
+  });
+  static DeleteVehicle = z.string();
 }
