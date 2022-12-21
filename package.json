@@ -2,7 +2,7 @@
   "name": "roleplaybot-sdk",
   "version": "1.0.0",
   "description": "A type-safe Javascript SDK for the RoleplayBot API",
-  "main": "src/index",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
     "build": "tsc",
