@@ -4,6 +4,10 @@
   "description": "A type-safe Javascript SDK for the RoleplayBot API",
   "main": "src/index.js",
   "type": "module",
+  "files": [
+    "src"
+  ],
+  "types": "src/types/index.d.ts",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\""
